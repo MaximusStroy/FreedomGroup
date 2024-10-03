@@ -6,6 +6,6 @@ builder.AddProject<Projects.Freedom_Web>("WebClient")
     .WithExternalHttpEndpoints()
     .WithReference(apiService);
 
-builder.AddProject<Projects.Freedom_WebAdministrator>("WebAdmin");
+builder.AddProject<Projects.Freedom_WebAdmin>("WebAdmin");
 
 builder.Build().Run();

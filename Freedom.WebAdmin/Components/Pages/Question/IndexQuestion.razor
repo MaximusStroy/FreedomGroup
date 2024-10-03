@@ -1,0 +1,40 @@
+﻿@page "/question"
+
+<h3>Вопросы от пользователей</h3>
+
+@if (this.Questions == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <a class="btn btn-primary" href="/question/create">Создать вопрос</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Имя отправителя</th>
+                <th>Почта</th>
+                <th>Тема</th>
+                <th>Сообщение</th>
+                <th>Дата отправки</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var question in Questions)
+            {
+                <tr>
+                    <td>@question.fullname</td>
+                    <td>@question.email</td>
+                    <td>@question.subject</td>
+                    <td>@question.descr</td>
+                    <td>@question.created_at.ToShortDateString()</td>
+                    <td>
+                        <a class="btn btn-secondary" href="/question/update/@question.id">Изменить</a>
+                        <button class="btn btn-danger">Удалить</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

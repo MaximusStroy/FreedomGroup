@@ -1,0 +1,37 @@
+﻿@page "/question/create"
+<h3>Создание вопроса</h3>
+@rendermode InteractiveServer
+
+
+<EditForm OnValidSubmit="Submit" FormName="CreateProduct" Model="Model">
+    <DataAnnotationsValidator />
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label> Имя отправителя</label>
+                <InputText class="form-control" @bind-Value="Model.fullname" />
+                <ValidationMessage For="() => Model.fullname" />
+            </div>
+            <div class="col-md-6">
+                <label> Почта</label>
+                <InputText class="form-control" @bind-Value="Model.email" />
+                <ValidationMessage For="() => Model.email" />
+            </div>
+            <div class="col-md-6">
+                <label> Тема</label>
+                <InputText class="form-control" @bind-Value="Model.subject" />
+                <ValidationMessage For="() => Model.subject" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label> Сообщение</label>
+                <InputText class="form-control" @bind-Value="Model.descr" />
+                <ValidationMessage For="() => Model.descr" />
+            </div>
+            
+        </div>
+        <button class="btn btn-secondary" type="submit">Сохранить</button>
+    </div>
+</EditForm>

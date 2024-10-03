@@ -1,7 +1,164 @@
 ﻿@page "/"
+@* @using Microsoft.Extensions.Localization
+@rendermode InteractiveServer
+@using BlazorApp.Resources
+@inject IStringLocalizer<Home> Localizer
+@implements IDisposable *@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+
+<section class="slick-slideshow">
+    <div class="slick-custom">
+        <img src="icon/earthfon.jpeg" class="img-fluid" alt="Travel">
+
+        <div class="slick-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-10">
+                        <h1 class="slick-title">Freedom Group</h1>
+
+                        <p class="lead text-white mt-lg-3 mb-lg-5">Professional buisness assistance for a travel companies</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<section class="about section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 text-center">
+                <h2 class="mb-5"><span>We are the ones who make your business better</span></h2>
+            </div>
+            <div class="col-12 text-center">
+                <p class="mb-5">We are a multidisciplinary team of travel business professionals that has been active since 2016.All our partners are united under two categories: Incoming Tour Operators (DMC) and Outgoing Tour Operators (TO).</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="front-product">
+    <div class="container-fluid p-0">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 col-12">
+                <img src="icon/info.png" class="img-fluid" alt="info">
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <div class="px-5 py-5 py-lg-0">
+
+                    <h2 class="mb-4">Our team focuses in the following areas of work and development:</h2>
+
+                    <ul class="lead mb-4">
+                        <li>Implementation of specialized automation systems.</li>
+                        <li>Training and consulting.</li>
+                        <li>Database updates and constant prices monitoring.</li>
+                        <li>Development and implementation of workflow optimization complexes.</li>
+                        <li>Database administration and development of printing forms.</li>
+                        <li>Development of signature and tailor-made services and integrations.</li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container text-center pt-5">
+    <hr />
+</div>
+
+<section>
+    <div class="container p-5 mb-3">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100 border rounded" style="border-color: #3DA2CB;">
+                    <div class="d-flex justify-content-center h-25">
+                        <img src="icon/samoTour.png" class="card-img-top" style="max-width: 200px;" alt="Samo Tour">
+                    </div>
+                    <div class="card-body h-75">
+                        <div class="card-text">
+                            <h3 class="text-center" style="color: #3DA2CB;">OUTBOUND</h3>
+                            <ul class="pt-3">
+                                <li>System implementation</li>
+                                <li>Training and Consulting</li>
+                                <li>Tariffication</li>
+                                <li>Robotization</li>
+                                <li>Administration</li>
+                                <li>Integration with TRAVEL</li>
+                                <li>Analytics</li>
+                                <li>Fast import rates from DMC</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border rounded" style="border-color: #F05F23;">
+                    <div class="d-flex justify-content-center h-25">
+                        <img src="icon/samoIncoming.png" class="card-img-top" style="max-width: 200px;" alt="Samo Incoming">
+                    </div>
+                    <div class="card-body h-75">
+                        <div class="card-text">
+                            <h3 class="text-center" style="color: #F05F23;">INCOMING</h3>
+                            <ul class="pt-3">
+                                <li>System implementation</li>
+                                <li>Training and Consulting</li>
+                                <li>Tariffication</li>
+                                <li>Robotization</li>
+                                <li>Administration</li>
+                                <li>Integration with Biblio GLOBUS</li>
+                                <li>Integration with hotels</li>
+                                <li>Rates export</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border rounded" style="border-color: #3D3EC3;">
+                    <div class="d-flex justify-content-center h-25">
+                        <img src="icon/fdgSolutions.png" class="card-img-top" style="max-width: 200px;" alt="Solutions">
+                    </div>
+                    <div class="card-body h-75">
+                        <div class="card-text">
+                            <h3 class="text-center" style="color: #3D3EC3;">OUTBOUND</h3>
+                            <ul class="pt-3">
+                                <li>Integration with Biblio Globus</li>
+                                <li>Integration with TRAVEL Analytics</li>
+                                <li>Fast rates Import system</li>
+                                <li>XML Gate Integrations</li>
+                                <li>Integrations with hotels</li>
+                                <li>Robotization projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* @code {
+
+    protected override void OnInitialized() => languageService.Notify += StateHasChanged;
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    => await languageService.LoadCulture(LanguageConstant.DefaultCulture);
+    public void Dispose() => languageService.Notify -= StateHasChanged;
+} *@

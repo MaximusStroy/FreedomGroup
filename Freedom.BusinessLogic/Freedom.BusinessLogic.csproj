@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Service\" />
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\Freedom.Database\Freedom.Database.csproj" />
+    <ProjectReference Include="..\Freedom.Model\Freedom.Model.csproj" />
   </ItemGroup>
 
 </Project>

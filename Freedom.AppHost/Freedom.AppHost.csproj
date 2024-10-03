@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Freedom.ApiService\Freedom.ApiService.csproj" />
     <ProjectReference Include="..\Freedom.WebAdministrator\Freedom.WebAdministrator.csproj" />
+    <ProjectReference Include="..\Freedom.WebAdmin\Freedom.WebAdmin.csproj" />
     <ProjectReference Include="..\Freedom.Web\Freedom.Web.csproj" />
   </ItemGroup>
 

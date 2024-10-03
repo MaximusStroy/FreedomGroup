@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Freedom.BusinessLogic\Freedom.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Freedom.Model\Freedom.Model.csproj" />
     <ProjectReference Include="..\Freedom.ServiceDefaults\Freedom.ServiceDefaults.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>
