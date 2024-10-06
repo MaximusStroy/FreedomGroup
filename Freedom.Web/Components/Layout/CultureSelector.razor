@@ -1,0 +1,48 @@
+﻿@using System.Globalization
+@inject IJSRuntime JS
+@inject NavigationManager Navigation
+
+<p>
+    <label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" @bind="selectedCulture" @bind:after="ApplySelectedCultureAsync">
+            @foreach (var culture in supportedCultures)
+            {
+                <option value="@culture">@GetLanguage(@culture.Name)</option>
+            }
+        </select>
+    </label>
+</p>
+
+@code
+{
+    private CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("ru-RU"),
+    };
+
+    private CultureInfo? selectedCulture;
+
+    protected override void OnInitialized()
+    {
+        selectedCulture = CultureInfo.CurrentCulture;
+    }
+
+    private async Task ApplySelectedCultureAsync()
+    {
+        if (CultureInfo.CurrentCulture != selectedCulture)
+        {
+            var uri = new Uri(Navigation.Uri)
+                .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+            var cultureEscaped = Uri.EscapeDataString(selectedCulture.Name);
+            var uriEscaped = Uri.EscapeDataString(uri);
+
+            Navigation.NavigateTo(
+                $"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}",
+                forceLoad: true);
+        }
+    }
+
+    public string GetLanguage(string langName) => langName.Substring(0, langName.Length - 3);
+    
+}

@@ -4,8 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Freedom.WebAdmin.Components;
 using Freedom.WebAdmin.Components.Account;
 using Freedom.WebAdmin.Data;
-using Freedom.Web;
 using Blazored.Toast;
+using Freedom.BusinessLogic;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,7 +50,12 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
-
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Default SignIn settings.
+    options.SignIn.RequireConfirmedEmail = false;
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+});
 
 var app = builder.Build();
 

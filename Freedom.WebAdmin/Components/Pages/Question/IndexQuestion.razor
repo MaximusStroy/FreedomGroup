@@ -1,5 +1,9 @@
 ﻿@page "/question"
 
+@using Freedom.WebAdmin.BaseComponents
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
 <h3>Вопросы от пользователей</h3>
 
 @if (this.Questions == null)
@@ -8,7 +12,7 @@
 }
 else
 {
-    <a class="btn btn-primary" href="/question/create">Создать вопрос</a>
+    @* <a class="btn btn-primary" href="/question/create">Создать вопрос</a>
     <table class="table">
         <thead>
             <tr>
@@ -37,4 +41,36 @@ else
             }
         </tbody>
     </table>
+ *@
+    <div class="row row-cols-1 row-cols-md-5 g-4 mb-3">
+        @foreach (var question in Questions)
+        {
+            <div class="card text-center h-100 m-3">
+                <div class="card-header">
+                    @question.email - @question.fullname
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@question.subject</h5>
+                    <p class="card-text">@question.descr</p>
+                    <a class="btn btn-secondary" href="/question/update/@question.id">Изменить</a>
+                    <button class="btn btn-danger" @onclick="()=> { DeleteID = question.id; Modal.Open();}">Удалить</button>
+                </div>
+                <div class="card-footer text-muted">
+                    @question.created_at.ToShortDateString()
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <AppModal @ref="Modal">
+        <Title>Notification</Title>
+        <Body>
+            Вы уверены, что хотите удалить этот продукт?
+        </Body>
+        <Footer>
+            <button type="button" class="btn btn-primary" style="width:80px" @onclick="HandleDelete">Да</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Modal.Close()">Отменить</button>
+        </Footer>
+    </AppModal>
 }

@@ -1,4 +1,6 @@
-﻿<footer class="site-footer">
+﻿@inject IStringLocalizer<Resource> localizer
+
+<footer class="site-footer">
     <div class="container">
         <div class="row">
 
@@ -10,20 +12,20 @@
             </div>
 
             <div class="col-lg-5 col-8">
-                <h5 class="text-white mb-3">Sitemap</h5>
+                <h5 class="text-white mb-3">@localizer["Sitemap"]</h5>
 
                 <ul class="footer-menu d-flex flex-wrap">
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Home</a></li>
+                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">@localizer["NavHome"]</a></li>
 
-                    <li class="footer-menu-item"><a href="contact" class="footer-menu-link">Contact us</a></li>
+                    <li class="footer-menu-item"><a href="contact" class="footer-menu-link">@localizer["NavContact"]</a></li>
 
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Add task</a></li>
+                    <li class="footer-menu-item disabled"><a href="#" class="footer-menu-link">@localizer["NavAddTask"]</a></li>
 
                 </ul>
             </div>
 
             <div class="col-lg-3 col-4">
-                <h5 class="text-white mb-3">Social</h5>
+                <h5 class="text-white mb-3">@localizer["ContactSocial"]</h5>
 
                 <ul class="social-icon">
 

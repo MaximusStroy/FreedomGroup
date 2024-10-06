@@ -44,6 +44,17 @@ namespace Freedom.ApiService.Controllers
             await questionService.UpdateQuestion(question);
             return Ok(new BaseResponseModel {Success = true});
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteQuestion(Guid id)
+        {
+            if (!await questionService.QuestioModelExists(id))
+            {
+                return Ok(new BaseResponseModel { Success = false, ErrorMessage = "Not Found" });
+            }
+            await questionService.DeleteQuestion(id);
+            return Ok(new BaseResponseModel { Success = true });
+        }
     }
 }
 

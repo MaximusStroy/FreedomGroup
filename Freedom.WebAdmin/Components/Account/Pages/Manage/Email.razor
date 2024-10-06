@@ -12,9 +12,9 @@
 @inject IdentityUserAccessor UserAccessor
 @inject NavigationManager NavigationManager
 
-<PageTitle>Manage email</PageTitle>
+<PageTitle>Управление электронной почтой</PageTitle>
 
-<h3>Manage email</h3>
+<h3>Управление электронной почтой</h3>
 
 <StatusMessage Message="@message"/>
 <div class="row">
@@ -28,11 +28,11 @@
             @if (isEmailConfirmed)
             {
                 <div class="form-floating mb-3 input-group">
-                    <input type="text" value="@email" class="form-control" placeholder="Please enter your email." disabled />
+                    <input type="text" value="@email" class="form-control" placeholder="Введите свой адрес электронной почты." disabled />
                     <div class="input-group-append">
                         <span class="h-100 input-group-text text-success font-weight-bold">✓</span>
                     </div>
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label">Адрес электронной почты</label>
                 </div>
             }
             else
@@ -44,11 +44,11 @@
                 </div>
             }
             <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" placeholder="Please enter new email." />
-                <label for="new-email" class="form-label">New email</label>
+                <InputText @bind-Value="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" placeholder="Введите свой новый адрес электронной почты" />
+                <label for="new-email" class="form-label">Новый адрес электронной почты</label>
                 <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
             </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Change email</button>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Изменить адрес электронной почты</button>
         </EditForm>
     </div>
 </div>

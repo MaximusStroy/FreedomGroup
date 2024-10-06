@@ -1,0 +1,90 @@
+﻿@page "/contactus"
+@inject IStringLocalizer<Resource> localizer
+
+<h3>@localizer["NavContact"]</h3>
+
+@rendermode InteractiveServer
+
+<section class="contact section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <h2 class="mb-4">@localizer["ContactTitle"]</h2>
+                <EditForm class="contact-form me-lg-5 pe-lg-3" OnValidSubmit="Submit" FormName="CreateQuestion" Model="Model">
+                    <DataAnnotationsValidator />
+                    <div class="container">
+                        <div class="form-floating">
+
+                            <InputText class="form-control" placeholder="@localizer["ContactFullname"]" @bind-Value="Model.fullname" required />
+                            <label>@localizer["ContactFullname"]</label>
+                            <ValidationMessage For="() => Model.fullname" />
+                        </div>
+                        <div class="form-floating my-4">
+
+                            <InputText class="form-control" placeholder="@localizer["ContactEmail"]" @bind-Value="Model.email" required />
+                            <label>@localizer["ContactEmail"]</label>
+                            <ValidationMessage For="() => Model.email" />
+                        </div>
+                        <div class="form-floating my-4">
+                            <InputText class="form-control" placeholder="@localizer["ContactSubject"]" @bind-Value="Model.subject" required />
+
+                            <label>@localizer["ContactSubject"]</label>
+                            <ValidationMessage For="() => Model.subject" />
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <InputTextArea class="form-control" style="height: 160px" DisplayName="@localizer["ContactMessage"]" @bind-Value="Model.descr" required />
+
+                            <label>@localizer["ContactMessage"]</label>
+                            <ValidationMessage For="() => Model.descr" />
+                        </div>
+                        <div class="col-lg-5 col-6">
+                            <button class="btn btn-secondary" type="submit">@localizer["ContactBtnSend"]</button>
+                        </div>
+
+                    </div>
+                </EditForm>
+            </div>
+
+            <div class="col-lg-6 col-12 mt-5 ms-auto">
+                <div class="row">
+
+
+                    <div class="col-12 contact-info">
+
+                        <h6 class="mb-3">@localizer["ContactOurOffice"]</h6>
+
+                        <p class="text-muted">Akershusstranda 20, 0150 Oslo, Norway</p>
+
+                    </div>
+
+                    <div class="col-6 border-top border-end contact-info">
+                        <h6 class="mb-3">@localizer["ContactOurEmail"]</h6>
+
+                        <a href="mailto:bilevich@freedomgroup.online" class="custom-link">
+                            bilevich@freedomgroup.online
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-6 border-top contact-info">
+                        <h6 class="mb-3">@localizer["ContactSocial"]</h6>
+
+                        <ul class="social-icon">
+
+                            <li><a href="#" class="social-icon-link bi-messenger"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

@@ -4,9 +4,9 @@ using Freedom.Model.Entities;
 using Freedom.Model.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace Freedom.WebAdmin.Components.Pages.Question
+namespace Freedom.Web.Components.Pages
 {
-    public partial class CreateQuestion
+    public partial class ContactUs
     {
         public Questions Model { get; set; } = new();
 
@@ -23,8 +23,9 @@ namespace Freedom.WebAdmin.Components.Pages.Question
             if (res != null && res.Success)
             {
                 ToastService.ShowSuccess("Вопрос успешно создан");
-                NavigationManager.NavigateTo("/Question");
+                NavigationManager.NavigateTo("/");
             }
+            Model = new();
         }
     }
 }

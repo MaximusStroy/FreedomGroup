@@ -1,4 +1,5 @@
-﻿@implements IDisposable
+﻿@using Blazored.Toast.Configuration
+@implements IDisposable
 
 @inject NavigationManager NavigationManager
 
@@ -19,11 +20,11 @@
         </div> *@
         <AuthorizeView>
             <Authorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="">
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Пользователи
-                    </NavLink>
-                </div>
+                @* <div class="nav-item px-3">
+                <NavLink class="nav-link" href="">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Пользователи
+                </NavLink>
+                </div> *@
 
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="question">
@@ -40,36 +41,47 @@
 
         <AuthorizeView>
             <Authorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="Account/Manage">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <form action="Account/Logout" method="post">
-                        <AntiforgeryToken />
-                        <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                        <button type="submit" class="nav-link">
-                            <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
-                        </button>
-                    </form>
+                <div class="fixed-bottom">
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="Account/Manage">
+                            <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <form action="Account/Logout" method="post">
+                            <AntiforgeryToken />
+                            <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                            <button type="submit" class="nav-link">
+                                <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Выйти
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </Authorized>
             <NotAuthorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="Account/Register">
-                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="Account/Login">
-                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
-                    </NavLink>
+                <div class="fixed-bottom">
+                    @* <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="Account/Register">
+                            <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Зарегестрироваться
+                        </NavLink>
+                    </div> *@
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="Account/Login">
+                            <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Войти
+                        </NavLink>
+                    </div>
                 </div>
             </NotAuthorized>
         </AuthorizeView>
     </nav>
 </div>
+
+<BlazoredToasts Position="ToastPosition.TopRight"
+                Timeout="10"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-thumbs-up"
+                ErrorIcon="fa fa-bug" />
 
 @code {
     private string? currentUrl;

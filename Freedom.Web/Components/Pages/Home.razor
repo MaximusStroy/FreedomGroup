@@ -5,7 +5,9 @@
 @inject IStringLocalizer<Home> Localizer
 @implements IDisposable *@
 
-<PageTitle>Home</PageTitle>
+@inject IStringLocalizer<Resource> localizer
+
+<PageTitle>@localizer["NavHome"]</PageTitle>
 
 
 
@@ -19,7 +21,7 @@
                     <div class="col-lg-6 col-10">
                         <h1 class="slick-title">Freedom Group</h1>
 
-                        <p class="lead text-white mt-lg-3 mb-lg-5">Professional buisness assistance for a travel companies</p>
+                        <p class="lead text-white mt-lg-3 mb-lg-5">@localizer["HomeSec1"]</p>
 
                     </div>
                 </div>
@@ -36,10 +38,10 @@
         <div class="row">
 
             <div class="col-12 text-center">
-                <h2 class="mb-5"><span>We are the ones who make your business better</span></h2>
+                <h2 class="mb-5"><span>@localizer["HomeSec2"]</span></h2>
             </div>
             <div class="col-12 text-center">
-                <p class="mb-5">We are a multidisciplinary team of travel business professionals that has been active since 2016.All our partners are united under two categories: Incoming Tour Operators (DMC) and Outgoing Tour Operators (TO).</p>
+                <p class="mb-5">@localizer["HomeSec2_2"]</p>
             </div>
 
         </div>
@@ -58,18 +60,16 @@
             <div class="col-lg-6 col-12">
                 <div class="px-5 py-5 py-lg-0">
 
-                    <h2 class="mb-4">Our team focuses in the following areas of work and development:</h2>
+                    <h2 class="mb-4">@localizer["HomeSec3Title"]</h2>
 
                     <ul class="lead mb-4">
-                        <li>Implementation of specialized automation systems.</li>
-                        <li>Training and consulting.</li>
-                        <li>Database updates and constant prices monitoring.</li>
-                        <li>Development and implementation of workflow optimization complexes.</li>
-                        <li>Database administration and development of printing forms.</li>
-                        <li>Development of signature and tailor-made services and integrations.</li>
+                        <li>@localizer["HomeSec3Num1"]</li>
+                        <li>@localizer["HomeSec3Num2"]</li>
+                        <li>@localizer["HomeSec3Num3"]</li>
+                        <li>@localizer["HomeSec3Num4"]</li>
+                        <li>@localizer["HomeSec3Num5"]</li>
+                        <li>@localizer["HomeSec3Num6"]</li>
                     </ul>
-
-
                 </div>
             </div>
 
@@ -92,16 +92,16 @@
                     </div>
                     <div class="card-body h-75">
                         <div class="card-text">
-                            <h3 class="text-center" style="color: #3DA2CB;">OUTBOUND</h3>
+                            <h3 class="text-center" style="color: #3DA2CB;">@localizer["HomeSec4TourTitle"]</h3>
                             <ul class="pt-3">
-                                <li>System implementation</li>
-                                <li>Training and Consulting</li>
-                                <li>Tariffication</li>
-                                <li>Robotization</li>
-                                <li>Administration</li>
-                                <li>Integration with TRAVEL</li>
-                                <li>Analytics</li>
-                                <li>Fast import rates from DMC</li>
+                                <li>@localizer["HomeSec4TourNum1"]</li>
+                                <li>@localizer["HomeSec4TourNum2"]</li>
+                                <li>@localizer["HomeSec4TourNum3"]</li>
+                                <li>@localizer["HomeSec4TourNum4"]</li>
+                                <li>@localizer["HomeSec4TourNum5"]</li>
+                                <li>@localizer["HomeSec4TourNum6"]</li>
+                                <li>@localizer["HomeSec4TourNum7"]</li>
+                                <li>@localizer["HomeSec4TourNum8"]</li>
                             </ul>
                         </div>
                     </div>
@@ -115,16 +115,16 @@
                     </div>
                     <div class="card-body h-75">
                         <div class="card-text">
-                            <h3 class="text-center" style="color: #F05F23;">INCOMING</h3>
+                            <h3 class="text-center" style="color: #F05F23;">@localizer["HomeSec4IncomingTitle"]</h3>
                             <ul class="pt-3">
-                                <li>System implementation</li>
-                                <li>Training and Consulting</li>
-                                <li>Tariffication</li>
-                                <li>Robotization</li>
-                                <li>Administration</li>
-                                <li>Integration with Biblio GLOBUS</li>
-                                <li>Integration with hotels</li>
-                                <li>Rates export</li>
+                                <li>@localizer["HomeSec4IncomingNum1"]</li>
+                                <li>@localizer["HomeSec4IncomingNum2"]</li>
+                                <li>@localizer["HomeSec4IncomingNum3"]</li>
+                                <li>@localizer["HomeSec4IncomingNum4"]</li>
+                                <li>@localizer["HomeSec4IncomingNum5"]</li>
+                                <li>@localizer["HomeSec4IncomingNum6"]</li>
+                                <li>@localizer["HomeSec4IncomingNum7"]</li>
+                                <li>@localizer["HomeSec4IncomingNum8"]</li>
                             </ul>
                         </div>
                     </div>
@@ -138,14 +138,14 @@
                     </div>
                     <div class="card-body h-75">
                         <div class="card-text">
-                            <h3 class="text-center" style="color: #3D3EC3;">OUTBOUND</h3>
+                            <h3 class="text-center" style="color: #3D3EC3;">@localizer["HomeSec4SolutionsTitle"]</h3>
                             <ul class="pt-3">
-                                <li>Integration with Biblio Globus</li>
-                                <li>Integration with TRAVEL Analytics</li>
-                                <li>Fast rates Import system</li>
-                                <li>XML Gate Integrations</li>
-                                <li>Integrations with hotels</li>
-                                <li>Robotization projects</li>
+                                <li>@localizer["HomeSec4SolutionsNum1"]</li>
+                                <li>@localizer["HomeSec4SolutionsNum2"]</li>
+                                <li>@localizer["HomeSec4SolutionsNum3"]</li>
+                                <li>@localizer["HomeSec4SolutionsNum4"]</li>
+                                <li>@localizer["HomeSec4SolutionsNum5"]</li>
+                                <li>@localizer["HomeSec4SolutionsNum6"]</li>
                             </ul>
                         </div>
                     </div>

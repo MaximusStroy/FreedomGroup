@@ -1,6 +1,13 @@
 ﻿@page "/contact"
+@using Blazored.Toast.Services
+@using Freedom.BusinessLogic
+@using Freedom.Model.Entities
+@using Freedom.Model.Models
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@rendermode RenderMode.InteractiveServer
 
-<PageTitle>Contact us</PageTitle>
+<PageTitle>Contact</PageTitle>
 
 <section class="contact section-padding">
     <div class="container">
@@ -9,7 +16,7 @@
             <div class="col-lg-6 col-12">
                 <h2 class="mb-4">Сontact with us</h2>
 
-                <form class="contact-form me-lg-5 pe-lg-3" role="form">
+                <form class="contact-form me-lg-5 pe-lg-3" Model="@Model" onsubmit="Submit" role="form">
 
                     <div class="form-floating">
                         <input type="text" name="name" id="name" class="form-control" placeholder="Full name" required>
@@ -83,3 +90,23 @@
     </div>
 </section>
 
+@code{
+    public Questions Model { get; set; } = new();
+
+    [Inject]
+    private ApiClient ApiClient { get; set; }
+    [Inject]
+    private IToastService ToastService { get; set; }
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    public async Task Submit()
+    {
+        var res = await ApiClient.PostAsync<BaseResponseModel, Questions>("/api/Question", Model);
+        if (res != null && res.Success)
+        {
+            ToastService.ShowSuccess("Вопрос успешно создан");
+            NavigationManager.NavigateTo("/Question");
+        }
+    }
+}

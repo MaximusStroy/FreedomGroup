@@ -1,4 +1,6 @@
-﻿
+﻿@using Blazored.Toast.Configuration
+
+@inject IStringLocalizer<Resource> localizer
 
 
 <nav class="navbar navbar-expand-lg">
@@ -11,23 +13,23 @@
             <img src="icon/logo black.svg" />
         </a>
 
-        @* <div class="d-lg-none">
-            <LoginPartial></LoginPartial>
-        </div> *@
+        <div class="d-lg-none">
+            <CultureSelector></CultureSelector>
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">@localizer["NavHome"]</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact us</a>
+                    <a class="nav-link" href="contactus">@localizer["NavContact"]</a>
                 </li>
 
                 <li class="nav-item disabled">
-                    <a class="nav-link disabled" href="">Add task</a>
+                    <a class="nav-link disabled" href="">@localizer["NavAddTask"]</a>
                 </li>
                 <li class="nav-item">
                     @* <Language></Language> *@
@@ -35,12 +37,40 @@
 
             </ul>
 
-            @* <div class="d-none d-lg-block">
-                <LoginPartial></LoginPartial>
-            </div> *@
+            <div class="d-none d-lg-block">
+                <CultureSelector></CultureSelector>
+            </div>
         </div>
 
 
 
     </div>
 </nav>
+
+<BlazoredToasts Position="ToastPosition.TopRight"
+                Timeout="10"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-thumbs-up"
+                ErrorIcon="fa fa-bug" />
+
+@* @code {
+    private string? currentUrl;
+
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+} *@

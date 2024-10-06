@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
+using System.Net.Http.Json;
 
-namespace Freedom.Web;
+namespace Freedom.BusinessLogic;
 
 public class ApiClient(HttpClient httpClient)
 {

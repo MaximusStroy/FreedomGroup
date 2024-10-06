@@ -39,12 +39,13 @@
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/slick.css" />
     <link href="assets/css/tooplate-little-fashion.css" rel="stylesheet" />
-    <HeadOutlet />
+    <link href="_content/Blazored.Toast/Blazored.Toast.bundle.scp.css" rel="stylesheet" />
+    <HeadOutlet @rendermode="new InteractiveServerRenderMode(prerender: false)" />
 
 </head>
 
 <body>
-    <Routes />
+    <Routes @rendermode="new InteractiveServerRenderMode(prerender: false)" />
     <script src="_framework/blazor.web.js"></script>
     <!-- JAVASCRIPT FILES -->
     <script src="assets/js/jquery.min.js"></script>

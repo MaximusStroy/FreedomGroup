@@ -1,7 +1,7 @@
 ﻿using Blazored.Toast.Services;
+using Freedom.BusinessLogic;
 using Freedom.Model.Entities;
 using Freedom.Model.Models;
-using Freedom.Web;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
 

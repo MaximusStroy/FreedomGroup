@@ -15,12 +15,18 @@ namespace Freedom.BusinessLogic.Service
         Task<Questions> GetQuestion(Guid id);
         Task<bool> QuestioModelExists(Guid id);
         Task UpdateQuestion(Questions question);
+        Task DeleteQuestion(Guid id);
     }
     public class QuestionService(IQuestionRepository questionRepository) : IQuestionService
     {
         public Task<Questions> CreateQuestion(Questions question)
         {
             return questionRepository.CreateQuestion(question);
+        }
+
+        public Task DeleteQuestion(Guid id)
+        {
+            return questionRepository.DeleteQuestion(id);
         }
 
         public Task<Questions> GetQuestion(Guid id)
